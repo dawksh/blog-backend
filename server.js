@@ -17,11 +17,7 @@ app.use(express.json())
 // setup routes
 app.get("/", (req, res) => res.send("Get Requests working at /"))
 app.get("/params/:id", (req, res) => res.send(req.params))
-app.post('/post', (req, res) => {
-    // console.log(req.body.toString())
-    const obj = JSON.parse(JSON.stringify(req.body));
-    res.send(obj)
-})
+app.use("/post", require('./routes/postRoutes'))
 
 // initalize app
 app.listen(8000, () => console.log("Server running successfully at port 8000"))
