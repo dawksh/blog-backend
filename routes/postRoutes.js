@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const Post = require('../models/postSchema.js')
+const post = require('../models/PostSchema.js')
 
 router.post('/', async (req, res) => {
 
     // retrieve data from req
     const { title, body, cover } = req.body
     // contruct post model
-    const newPost = new Post({
+    const newPost = new post({
         title,
         body,
         cover,
@@ -21,12 +21,12 @@ router.post('/', async (req, res) => {
 })
 
 router.get('/', async (req, res) => {
-    const posts = await Post.find();
+    const posts = await post.find();
     res.json(posts)
 });
 
 router.get('/:id', async (req, res) => {
-    const post = await Post.findById(req.params.id)
+    const post = await post.findById(req.params.id)
     res.json(post)
 })
 
