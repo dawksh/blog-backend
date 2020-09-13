@@ -7,7 +7,8 @@ const cors = require('cors')
 
 // setup mongodb
 const PORT = process.env.PORT || 4000
-mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log('Successfully connected to DB!!'))
+mongoose.connect('mongodb+srv://daksh:dakshkul29@cluster0.tv0vd.mongodb.net/blog?retryWrites=true&w=majority'
+    , { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log('Successfully connected to DB!!'))
 
 // public folder
 app.use(express.static('public'))
