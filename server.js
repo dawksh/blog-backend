@@ -8,7 +8,16 @@ const cors = require('cors')
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log('Successfully connected to DB!!'))
 
 // public folder
-app.use(express.static('public'))
+if (process.env.NODE_ENV === 'production') {
+    //set static folder
+    app.use(express.static('client/build'));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+} else {
+    app.use(express.static('public'))
+}
 
 // middlewares
 app.use(cors())
