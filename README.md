@@ -1,1 +1,2 @@
-"# blog-backend" 
+# Blog Backend
+This is the backend repo of my blog!
