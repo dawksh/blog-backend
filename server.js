@@ -17,9 +17,8 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 // setup routes
-app.get("/", (req, res) => res.send("Get Requests working at /"))
-app.get("/params/:id", (req, res) => res.send(req.params))
 app.use("/post", require('./routes/postRoutes'))
 
 // initalize app
-app.listen(process.env.PORT || 8080, () => console.log("Server running successfully at port 8000"))
+const PORT = process.env.PORT || 8080
+app.listen(PORT, () => console.log("Server running successfully at port ", PORT))
