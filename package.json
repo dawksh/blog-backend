@@ -18,6 +18,6 @@
     "mongoose": "^5.10.5"
   },
   "engines": {
-    "node"
+    "node": "12.18.3"
   }
 }
