@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Post = require('../models/postSchema')
+const Post = require('../models/postSchema.js')
 
 router.post('/', async (req, res) => {
 
