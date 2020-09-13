@@ -6,9 +6,7 @@ require('dotenv').config()
 const cors = require('cors')
 
 // setup mongodb
-const PORT = process.env.PORT || 4000
-mongoose.connect('mongodb+srv://daksh:dakshkul29@cluster0.tv0vd.mongodb.net/blog?retryWrites=true&w=majority'
-    , { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log('Successfully connected to DB!!'))
+mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log('Successfully connected to DB!!'))
 
 // public folder
 app.use(express.static('public'))
@@ -24,4 +22,4 @@ app.get("/params/:id", (req, res) => res.send(req.params))
 app.use("/post", require('./routes/postRoutes'))
 
 // initalize app
-app.listen(8000, () => console.log("Server running successfully at port 8000"))
+app.listen(process.env.PORT || 8080, () => console.log("Server running successfully at port 8000"))
