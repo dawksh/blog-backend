@@ -4,12 +4,13 @@ const post = require('../models/PostSchema.js')
 router.post('/', async (req, res) => {
 
     // retrieve data from req
-    const { title, body, cover } = req.body
+    const { title, body, cover, shortDesc } = req.body
     // contruct post model
     const newPost = new post({
         title,
         body,
         cover,
+        shortDesc
     });
     // save to db
     try {
